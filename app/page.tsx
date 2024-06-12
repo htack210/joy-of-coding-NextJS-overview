@@ -8,24 +8,31 @@ import bryson from "@/public/images/Bryson.jpeg";
 import { Metadata } from "next";
 // import HeavyComponent from "./components/HeavyComponent";
 import { sensitiveHeaders } from "http2";
-import { useState } from "react";
-import dynamic from "next/dynamic";
-const HeavyComponent = dynamic(() => import("./components/HeavyComponent"), {
-  ssr: false,
-  loading: () => <p>Loading...</p>,
-});
+
+// const HeavyComponent = dynamic(() => import("./components/HeavyComponent"), {
+//   ssr: false,
+//   loading: () => <p>Loading...</p>,
+// });
 
 export default function Home() {
   // const session = await getServerSession(authOptions);
-  const [isVisible, setVisible] = useState(false);
   return (
     <main className="relative h-screen">
       {/* <h1>Hello, {session && <span>{session.user!.name}</span>}!</h1> */}
 
       <h1>Hello, friend!</h1>
 
-      <button onClick={() => setVisible(true)}>Show</button>
-      {isVisible && <HeavyComponent />}
+      <button
+        onClick={async () => {
+          const _ = (await import("lodash")).default;
+          const users = [{ name: "c" }, { name: "b" }, { name: "a" }];
+
+          const sorted = _.orderBy(users, ["name"]);
+          console.log(sorted);
+        }}
+      >
+        Show
+      </button>
       {/* <Image
         src={bryson}
         alt="Bryson"
