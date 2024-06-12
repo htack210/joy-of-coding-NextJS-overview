@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ProductCard from "./components/ProductCard";
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
+//import { authOptions } from "./api/auth/[...nextauth]/route";
 import bryson from "@/public/images/Bryson.jpeg";
 import { Metadata } from "next";
 // import HeavyComponent from "./components/HeavyComponent";
